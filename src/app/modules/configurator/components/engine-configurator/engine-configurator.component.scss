@@ -1,0 +1,41 @@
+.configurations {
+    margin-left: 20px;
+
+    &__options {
+
+        mat-form-field {
+            width: 50%;
+        }
+
+        &-details {
+            display: flex;
+            width: 100%;
+        }
+    }
+
+    &__options-checkbox {
+        display: grid;
+    }
+
+}
+
+::ng-deep {
+    [type=checkbox]:checked:before {
+        content: "" !important;
+        border: none;
+    }
+
+    [type=checkbox]:checked:before,
+    [type=radio]:checked:before {
+        position: absolute;
+        border: none;
+    }
+
+    [type=checkbox]:disabled {
+        border: none;
+    }
+}
+
+h3 {
+    margin-left: 20px;
+}

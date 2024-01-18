@@ -1,0 +1,15 @@
+<div class="page">
+    <div class="page__stepper">
+        @for (config of stepperConfig; track config) {
+        <app-stepper [configuration]="config"></app-stepper>
+        }
+    </div>
+    <div class="page__content">
+        <router-outlet></router-outlet>
+        @if (modelSelected) {
+        <div class="car-image">
+            <app-photo-display [model]="modelSelected"></app-photo-display>
+        </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,14 @@
+.page {
+    &__stepper {
+        display: flex;
+    }
+
+    &__content {
+        margin-top: 1rem;
+        justify-content: start;
+
+        .car-image {
+            display: flex;
+        }
+    }
+}

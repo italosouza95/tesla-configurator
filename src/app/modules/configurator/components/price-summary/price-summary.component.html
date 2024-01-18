@@ -1,0 +1,51 @@
+<h3>Step 3: Summary</h3>
+
+@if(summary) {
+<h5>Your Tesla {{summary.model.description}} ({{summary.model.colors[0].description}})</h5>
+<table>
+    <tr>
+        <td>{{summary.configuration.configs[0].description}} <br>
+            <small>
+                Range: {{summary.configuration.configs[0].range}} miles - Max speed:
+                {{summary.configuration.configs[0].speed}} mph
+            </small>
+        </td>
+        <td>{{summary.configuration.configs[0].price | currency: 'USD'}} </td>
+    </tr>
+
+    <tr *ngIf="summary.model.colors[0].price > 0">
+        <td>
+            {{summary.model.colors[0].description}} Color:
+        </td>
+        <td>
+            {{summary.model.colors[0].price | currency: 'USD'}}
+        </td>
+    </tr>
+
+    @if(summary.configuration.yokePurchased) {
+    <tr>
+        <td>
+            Yoke Package:
+        </td>
+        <td>
+            {{'1000'| currency: 'USD'}}
+        </td>
+    </tr>
+    }
+
+    @if(summary.configuration.towHitchPurchased) {
+    <tr>
+        <td>
+            Tow Hitch Package:
+        </td>
+        <td>
+            {{'1000'| currency: 'USD'}}
+        </td>
+    </tr>
+    }
+    <tr>
+        <td>TOTAL COST</td>
+        <td>{{summary.totalPrice | currency: 'USD'}}</td>
+    </tr>
+</table>
+}

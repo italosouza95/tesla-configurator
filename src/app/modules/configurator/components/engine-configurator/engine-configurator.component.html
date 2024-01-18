@@ -1,0 +1,39 @@
+<h3>Step 2: Select your config and options</h3>
+
+@if (configurations) {
+<div class="configurations">
+    <div class="configurations__options">
+        <mat-form-field>
+            <mat-label>Configuration:</mat-label>
+            <mat-select (selectionChange)="configurationOptionSelected($event)" [formControl]="configurationControl"
+                id="configSelect">
+                @for (configuration of configurationsOptions; track configuration) {
+                <mat-option [value]="configuration">{{configuration.description}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+        @if (configurationSelected){
+        <div class="configurations__options-details">
+            <span> Range: {{configurationSelected.range}} miles - Max speed: {{configurationSelected.speed}} - Cost
+                {{configurationSelected.price | currency : 'USD'}}</span>
+        </div>
+        }
+    </div>
+    @if(configurationSelected){
+    <div class="configurations__options-checkbox">
+        <mat-checkbox *ngIf="configurations.towHitch" [checked]="configurations.towHitchPurchased" id="includeTow"
+            (change)="towHitchOptionSelected($event)">
+            Tow Hitch?
+            <span *ngIf="configurations.towHitchPurchased">Price: {{'1000' | currency: 'USD'}}</span>
+
+        </mat-checkbox>
+        <mat-checkbox *ngIf="configurations.yoke" [checked]="configurations.yokePurchased" id="includeYoke"
+            (change)="yokeOptionSelected($event)">
+            Yoke steering wheel?
+
+            <span *ngIf="configurations.yokePurchased">Price: {{'1000' | currency: 'USD'}}</span>
+        </mat-checkbox>
+    </div>
+    }
+</div>
+}

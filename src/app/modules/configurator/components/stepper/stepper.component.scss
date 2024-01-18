@@ -1,0 +1,26 @@
+.stepper {
+    display: grid;
+    margin-left: 20px;
+
+    &__tabs {
+
+        display: flex;
+        justify-content: start;
+
+        button {
+            width: max-content;
+            padding: 5px 75px;
+
+        }
+
+        .activated-step {
+            border: 1.5px #7b1fa2 solid;
+        }
+    }
+
+    &__step-title {
+        display: flex;
+        justify-content: flex-start;
+        text-align: start;
+    }
+}

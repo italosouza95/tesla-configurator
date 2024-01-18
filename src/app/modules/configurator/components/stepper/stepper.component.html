@@ -1,0 +1,8 @@
+<div class="stepper">
+    <div class="stepper__tabs">
+        <button [id]="configuration.id" [disabled]="!configuration.canActivate" [routerLink]="configuration.route"
+            routerLinkActive="activated-step">
+            {{configuration.name}}
+        </button>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<h3>Step 1: Choose your Model and color</h3>
+
+<div class="model-selector__fields">
+    @if (modelsOptions) {
+    <mat-form-field>
+        <mat-label>Model:</mat-label>
+        <mat-select (selectionChange)="modelSelected($event)" [formControl]="modelControl" id="modelSelect">
+            @for (model of modelsOptions; track model) {
+            <mat-option [value]="model">{{model.description}}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+
+    }
+    @if (colorsOptions) {
+    <mat-form-field>
+        <mat-label>Color:</mat-label>
+        <mat-select (selectionChange)="colorSelected($event)" [formControl]="colorControl" id="colorSelect">
+            @for (color of colorsOptions; track color) {
+            <mat-option [value]="color">{{color.description}}</mat-option>
+            }
+        </mat-select>
+        @if (modelAndColorSelected.colors !== undefined && modelAndColorSelected.colors[0].price > 0) {
+        <mat-hint> Price: {{modelAndColorSelected.colors[0].price | currency: 'USD'}}</mat-hint>
+        }
+    </mat-form-field>
+    }
+</div>
